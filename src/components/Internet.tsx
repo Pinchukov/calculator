@@ -37,9 +37,9 @@ const Internet: React.FC = () => {
 			<Typography gutterBottom>Интернет</Typography>
 			<Slider
 				aria-label="Restricted values"
-				defaultValue={internet}
+				value={internet}
 				valueLabelFormat={valueLabelFormat}
-				onChange={(_, event) => dispatch(toggleInternet(33)) }
+				onChange={(_, newValue) => dispatch(toggleInternet(newValue)) }
 				step={null}
 				valueLabelDisplay="auto"
 				marks={marks}

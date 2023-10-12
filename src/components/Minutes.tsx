@@ -32,21 +32,14 @@ const Minutes: React.FC = () => {
 	const dispatch = useAppDispatch();
 	const minutes = useAppSelector(state => state.list.minutes);
 
-	//const handleChange1 = (event: Event, newValue: number | number[], activeThumb: number) => {
-	//	//dispatch(toggleMinutes(newValue))
-	//	console.log("newValue", typeof(newValue))
-	//};
-
 	return (
 		<Box sx={{ width: 300 }}>
 			<Typography gutterBottom>Минуты</Typography>
 			<Slider
 				aria-label="Restricted values"
-				defaultValue={minutes}
+				value={minutes}
 				valueLabelFormat={valueLabelFormat}
-				//onChange={(_, event) => console.log(typeof(event))}
-				onChange={(_, event) => dispatch(toggleMinutes(64)) }
-				//onChange={handleChange1}
+				onChange={(_, newValue) => dispatch(toggleMinutes(newValue)) }
 				step={null}
 				valueLabelDisplay="auto"
 				marks={marks}

@@ -3,8 +3,8 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 type Calculator = {
 	phone: string,
 	operator: string,
-	minutes: number,
-	internet: number,
+	minutes: number | number[],
+	internet: number | number[],
 	routerRental: boolean,
 	buyRouter: boolean,
 	socialMedia: {
@@ -46,11 +46,11 @@ const calculatorSlice = createSlice({
 			console.log("toggleOperator", action.payload)
 			state.operator = action.payload;
 		},
-		toggleMinutes(state, action: PayloadAction<number>) {
+		toggleMinutes(state, action: PayloadAction<number | number[]>) {
 			console.log("toggleMinutes", action.payload)
 			state.minutes = action.payload;
 		},
-		toggleInternet(state, action: PayloadAction<number>) {
+		toggleInternet(state, action: PayloadAction<number | number[]>) {
 			console.log("toggleInternet", action.payload)
 			state.internet = action.payload;
 		},
