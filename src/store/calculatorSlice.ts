@@ -54,6 +54,14 @@ const calculatorSlice = createSlice({
 			console.log("toggleInternet", action.payload)
 			state.internet = action.payload;
 		},
+		toggleRouterRental(state, action: PayloadAction<boolean>) {
+			console.log("toggleRouterRental", action.payload)
+			state.routerRental = action.payload;
+		},
+		toggleBuyRouter(state, action: PayloadAction<boolean>) {
+			console.log("toggleBuyRouter", action.payload)
+			state.buyRouter = action.payload;
+		},
 		handleSum(state, action: PayloadAction<number>) {
 			console.log("handleSum", action.payload)
 			state.calcSum = action.payload;
@@ -64,6 +72,14 @@ const calculatorSlice = createSlice({
 	//}
 });
 
-export const { togglePhone, toggleOperator, toggleMinutes, toggleInternet } = calculatorSlice.actions;
+export const {
+	togglePhone,
+	toggleOperator,
+	toggleMinutes,
+	toggleInternet,
+	toggleRouterRental,
+	toggleBuyRouter,
+	handleSum,
+} = calculatorSlice.actions;
 
 export default calculatorSlice.reducer;

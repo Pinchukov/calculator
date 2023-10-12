@@ -11,7 +11,7 @@ import { useAppSelector, useAppDispatch } from '../hook';
 interface CustomProps {
 	onChange: (event: { target: { name: string; value: string } }) => void;
 	name: string;
-}
+};
 
 const TextMaskCustom = React.forwardRef<HTMLInputElement, CustomProps>(
 	function TextMaskCustom(props, ref) {
@@ -65,6 +65,6 @@ const Phone: React.FC = () => {
 			</FormControl>
 		</Box>
 	);
-}
+};
 
 export default Phone;

@@ -13,13 +13,13 @@ type selectNamesTypes = {
 	1: string,
 	2: string,
 	3: string,
-}
+};
 
 const selectNames: selectNamesTypes = {
 	1: "Оператор 1",
 	2: "Оператор 2",
 	3: "Оператор 3",
-}
+};
 
 const Operator: React.FC = () => {
 	const dispatch = useAppDispatch();
@@ -44,6 +44,6 @@ const Operator: React.FC = () => {
 			</FormControl>
 		</Box>
 	);
-}
+};
 
 export default Operator;

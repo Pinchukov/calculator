@@ -13,6 +13,6 @@ function CulcButton() {
 			}>{calcSum} ₽. в месяц</Button>
 		</Stack>
 	);
-}
+};
 
 export default CulcButton;

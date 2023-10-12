@@ -26,7 +26,7 @@ const marks = [
 
 function valueLabelFormat(value: number) {
 	return marks.findIndex((mark) => mark.value === value) + 1;
-}
+};
 
 const Internet: React.FC = () => {
 	const dispatch = useAppDispatch();
@@ -46,6 +46,6 @@ const Internet: React.FC = () => {
 			/>
 		</Box>
 	);
-}
+};
 
 export default Internet;

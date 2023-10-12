@@ -5,6 +5,7 @@ import Phone from './components/Phone';
 import Operator from './components/Operator';
 import Minutes from './components/Minutes';
 import Internet from './components/Internet';
+import WiFiRouter from './components/WiFiRouter';
 import CulcButton from './components/CulcButton';
 
 function App() {
@@ -22,6 +23,9 @@ function App() {
 				</Grid>
 				<Grid item xs={12}>
 					<Internet />
+				</Grid>
+				<Grid item xs={12}>
+					<WiFiRouter />
 				</Grid>
 				<Grid item xs={12}>
 					<CulcButton />

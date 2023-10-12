@@ -26,7 +26,7 @@ const marks = [
 
 function valueLabelFormat(value: number) {
 	return marks.findIndex((mark) => mark.value === value) + 1;
-}
+};
 
 const Minutes: React.FC = () => {
 	const dispatch = useAppDispatch();
@@ -46,6 +46,6 @@ const Minutes: React.FC = () => {
 			/>
 		</Box>
 	);
-}
+};
 
 export default Minutes;
