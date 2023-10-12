@@ -27,7 +27,7 @@ const Operator: React.FC = () => {
 
 	return (
 		<Box sx={{ minWidth: 120 }}>
-			<Typography gutterBottom>Оператор</Typography>
+			<Typography variant="h6" gutterBottom>Оператор</Typography>
 			<FormControl fullWidth>
 				<NativeSelect
 					defaultValue={operator}

@@ -14,21 +14,27 @@ const WiFiRouter: React.FC = () => {
 	const buy = useAppSelector(state => state.list.buyRouter);
 
 	return (
-		<Box sx={{ width: 300 }}>
-			<Typography gutterBottom>Wi-Fi роутер</Typography>
+		<Box sx={{ width: '100%' }}>
+			<Typography variant="h6" gutterBottom>Wi-Fi роутер</Typography>
 			<FormGroup>
-				<FormControlLabel control={
-					<Checkbox
-						checked={rental}
-						onChange={(event) => dispatch(toggleRouterRental(event.target.checked))}
-					/>
-				} label="Аренда 99₽/мес." />
-				<FormControlLabel required control={
-					<Checkbox
-						checked={buy}
-						onChange={(event) => dispatch(toggleBuyRouter(event.target.checked))}
-					/>
-				} label="Выкупить 2600₽" />
+				<FormControlLabel
+					control={
+						<Checkbox
+							checked={rental.state}
+							onChange={(event) => dispatch(toggleRouterRental(event.target.checked))}
+						/>
+					}
+					label={`Аренда ${rental.price}₽/мес`}
+				/>
+				<FormControlLabel
+					control={
+						<Checkbox
+							checked={buy.state}
+							onChange={(event) => dispatch(toggleBuyRouter(event.target.checked))}
+						/>
+					}
+					label={`Выкупить ${buy.price}₽`}
+				/>
 			</FormGroup>
 		</Box>
 	);

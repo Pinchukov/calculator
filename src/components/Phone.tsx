@@ -52,7 +52,7 @@ const Phone: React.FC = () => {
 
 	return (
 		<Box sx={{ minWidth: 120 }}>
-			<Typography gutterBottom>Телефон</Typography>
+			<Typography variant="h6" gutterBottom>Телефон</Typography>
 			<FormControl variant="standard" fullWidth>
 				<Input
 					value={values.textmask}

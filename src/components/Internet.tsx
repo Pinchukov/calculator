@@ -33,8 +33,8 @@ const Internet: React.FC = () => {
 	const internet = useAppSelector(state => state.list.internet);
 
 	return (
-		<Box sx={{ width: 300 }}>
-			<Typography gutterBottom>Интернет</Typography>
+		<Box sx={{ width: '100%' }}>
+			<Typography variant="h6" gutterBottom>Интернет</Typography>
 			<Slider
 				aria-label="Restricted values"
 				value={internet}

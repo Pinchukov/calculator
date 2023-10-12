@@ -3,9 +3,10 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import { useAppSelector } from '../hook';
 
-function CulcButton() {
+const CulcButton: React.FC = () => {
 	const calcSum = useAppSelector(state => state.list.calcSum);
 	const list = useAppSelector(state => state.list);
+
 	return (
 		<Stack spacing={2} direction="row">
 			<Button variant="contained" onClick={

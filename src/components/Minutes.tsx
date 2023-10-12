@@ -33,8 +33,8 @@ const Minutes: React.FC = () => {
 	const minutes = useAppSelector(state => state.list.minutes);
 
 	return (
-		<Box sx={{ width: 300 }}>
-			<Typography gutterBottom>Минуты</Typography>
+		<Box sx={{ width: '100%' }}>
+			<Typography variant="h6" gutterBottom>Минуты</Typography>
 			<Slider
 				aria-label="Restricted values"
 				value={minutes}

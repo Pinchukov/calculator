@@ -5,14 +5,35 @@ type Calculator = {
 	operator: string,
 	minutes: number | number[],
 	internet: number | number[],
-	routerRental: boolean,
-	buyRouter: boolean,
+	routerRental: {
+		state: boolean,
+		price: number
+	},
+	buyRouter: {
+		state: boolean,
+		price: number
+	},
 	socialMedia: {
-		facebook: boolean,
-		vk: boolean,
-		odnoklassniki: boolean,
-		instagram: boolean,
-		tikTok: boolean,
+		facebook: {
+			state: boolean,
+			price: number
+		},
+		vk: {
+			state: boolean,
+			price: number
+		},
+		odnoklassniki: {
+			state: boolean,
+			price: number
+		},
+		instagram: {
+			state: boolean,
+			price: number
+		},
+		tikTok: {
+			state: boolean,
+			price: number
+		},
 	},
 	calcSum: number,
 }
@@ -20,16 +41,37 @@ type Calculator = {
 const initialState: Calculator = {
 	phone: "(100) 000-0000",
 	operator: "Оператор 2",
-	minutes: 64,
+	minutes: 63,
 	internet: 33,
-	routerRental: false,
-	buyRouter: true,
+	routerRental: {
+		state: false,
+		price: 99,
+	},
+	buyRouter: {
+		state: false,
+		price: 2600,
+	},
 	socialMedia: {
-		facebook: false,
-		vk: true,
-		odnoklassniki: false,
-		instagram: true,
-		tikTok: false,
+		facebook: {
+			state: false,
+			price: 20,
+		},
+		vk: {
+			state: false,
+			price: 20,
+		},
+		odnoklassniki: {
+			state: false,
+			price: 20,
+		},
+		instagram: {
+			state: false,
+			price: 60,
+		},
+		tikTok: {
+			state: false,
+			price: 60,
+		},
 	},
 	calcSum: 0,
 }
@@ -39,32 +81,95 @@ const calculatorSlice = createSlice({
 	initialState,
 	reducers: {
 		togglePhone(state, action: PayloadAction<string>) {
-			console.log("togglePhone", action.payload)
 			state.phone = action.payload;
+			//console.log("togglePhone", action.payload)
+			return state;
 		},
 		toggleOperator(state, action: PayloadAction<string>) {
-			console.log("toggleOperator", action.payload)
 			state.operator = action.payload;
+			//console.log("toggleOperator", action.payload)
+			return state;
 		},
 		toggleMinutes(state, action: PayloadAction<number | number[]>) {
-			console.log("toggleMinutes", action.payload)
 			state.minutes = action.payload;
+			//console.log("toggleMinutes", action.payload)
+			return state;
 		},
 		toggleInternet(state, action: PayloadAction<number | number[]>) {
-			console.log("toggleInternet", action.payload)
 			state.internet = action.payload;
+			//console.log("toggleInternet", action.payload)
+			return state;
 		},
+
+
 		toggleRouterRental(state, action: PayloadAction<boolean>) {
-			console.log("toggleRouterRental", action.payload)
-			state.routerRental = action.payload;
+			state.routerRental.state = action.payload;
+			if (action.payload) {
+				state.calcSum += state.routerRental.price;
+			} else {
+				state.calcSum -= state.routerRental.price;
+			}
+			return state;
 		},
 		toggleBuyRouter(state, action: PayloadAction<boolean>) {
-			console.log("toggleBuyRouter", action.payload)
-			state.buyRouter = action.payload;
+			state.buyRouter.state = action.payload;
+			if (action.payload) {
+				state.calcSum += state.buyRouter.price;
+			} else {
+				state.calcSum -= state.buyRouter.price;
+			}
+			return state;
 		},
+		toggleFacebook(state, action: PayloadAction<boolean>) {
+			state.socialMedia.facebook.state = !action.payload;
+			if (!action.payload) {
+				state.calcSum += state.socialMedia.facebook.price;
+			} else {
+				state.calcSum -= state.socialMedia.facebook.price;
+			}
+			return state;
+		},
+		toggleVk(state, action: PayloadAction<boolean>) {
+			state.socialMedia.vk.state = !action.payload;
+			if (!action.payload) {
+				state.calcSum += state.socialMedia.vk.price;
+			} else {
+				state.calcSum -= state.socialMedia.vk.price;
+			}
+			return state;
+		},
+		toggleOdnoklassniki(state, action: PayloadAction<boolean>) {
+			state.socialMedia.odnoklassniki.state = !action.payload;
+			if (!action.payload) {
+				state.calcSum += state.socialMedia.odnoklassniki.price;
+			} else {
+				state.calcSum -= state.socialMedia.odnoklassniki.price;
+			}
+			return state;
+		},
+		toggleiInstagram(state, action: PayloadAction<boolean>) {
+			state.socialMedia.instagram.state = !action.payload;
+			if (!action.payload) {
+				state.calcSum += state.socialMedia.instagram.price;
+			} else {
+				state.calcSum -= state.socialMedia.instagram.price;
+			}
+			return state;
+		},
+		toggletTikTok(state, action: PayloadAction<boolean>) {
+			state.socialMedia.tikTok.state = !action.payload;
+			if (!action.payload) {
+				state.calcSum += state.socialMedia.tikTok.price;
+			} else {
+				state.calcSum -= state.socialMedia.tikTok.price;
+			}
+			return state;
+		},
+
 		handleSum(state, action: PayloadAction<number>) {
-			console.log("handleSum", action.payload)
 			state.calcSum = action.payload;
+			console.log("handleSum", action.payload)
+			return state;
 		},
 	},
 	//extraReducers: (builder) => {
@@ -79,6 +184,13 @@ export const {
 	toggleInternet,
 	toggleRouterRental,
 	toggleBuyRouter,
+
+	toggleFacebook,
+	toggleVk,
+	toggleOdnoklassniki,
+	toggleiInstagram,
+	toggletTikTok,
+
 	handleSum,
 } = calculatorSlice.actions;
 
